@@ -1,0 +1,20 @@
+name: Download invoice every month
+on:
+  schedule:
+    - cron: "0 2 28 * *"
+  push:
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download invoice and send email
+        run: ./congstar
+        env: # Or as an environment variable
+          CONGSTAR_USERNAME: ${{ secrets.CONGSTAR_USERNAME }}
+          CONGSTAR_PASSWORD: ${{ secrets.CONGSTAR_PASSWORD }}
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+
