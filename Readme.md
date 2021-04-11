@@ -16,3 +16,4 @@ Clone the repo and run
 ```
 CONGSTAR_USERNAME=$username CONGSTAR_PASSWORD=$pw SMTP_USERNAME=$username SMTP_PASSWORD=$pw ./congstar
 ```
+
